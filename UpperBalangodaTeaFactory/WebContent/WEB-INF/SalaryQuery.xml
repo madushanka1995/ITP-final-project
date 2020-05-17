@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Querys>
+
+	
+	<query id="create_salary_table">
+        <![CDATA[
+            CREATE TABLE salary(
+				employeeID varchar(10) not null,
+				FistName varchar(20),
+				LastName varchar(15),
+				WorkDate int(15),
+				BasicSalary int(15),
+				OtHours  int(50),
+				OtRate int(20),
+				TotalEPF int(10),
+				TotalSalry float(10),
+				ETF int(10),
+				EPF int(10),
+				primary key (employeeID)
+			)
+        ]]>
+	</query>
+
+	
+	<query id="drop_table">
+         <![CDATA[        
+            DROP TABLE IF EXISTS salary 
+        ]]>
+	</query>
+
+	
+	<query id="insert_salary">
+        <![CDATA[
+          	insert into salary (employeeID, FistName,LastName , WorkDate,BasicSalary ,OtHours , OtRate,TotalEPF,TotalSalry,ETF, EPF) 
+          	values (?, ?, ?, ?, ?, ?, ?, ?,?, ?,?)
+        ]]>
+	</query>
+
+	
+	<query id="salary_by_id">
+         <![CDATA[        
+            select * from salary where salary.employeeID = ?
+        ]]>
+	</query>
+
+	
+	<query id="all_salary">
+         <![CDATA[        
+            select * from salary
+        ]]>
+	</query>
+
+	
+	<query id="remove_salary">
+         <![CDATA[        
+            delete from salary where salary.employeeID= ?
+        ]]>
+	</query>
+	
+	
+	<query id="update_salary">
+         <![CDATA[        
+            update salary as e 
+            set e.FistName = ?, e.LastName = ?, e.WorkDate = ?, e.BasicSalary = ?, e.OtHours = ?, e.OtRate = ?, e.TotalEPF= ? ,e.TotalSalry =?, e.ETF =?,e.EPF =?
+            where e.employeeID = ?
+        ]]>
+	</query>
+	
+		
+	<query id="salary_ids">
+         <![CDATA[        
+            select e.employeeID from salary as e
+        ]]>
+	</query>
+
+</Querys>
